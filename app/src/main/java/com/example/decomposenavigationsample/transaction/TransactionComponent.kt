@@ -41,8 +41,8 @@ class DefaultTransactionComponent(
     override val stack: Value<ChildStack<*, TransactionComponent.Child>> =
         childStack(
             source = navigation,
-            serializer = null,
-            initialConfiguration = Config.Input,
+            serializer = Config.serializer(),
+            initialConfiguration = Config.Input(),
             handleBackButton = false,
             childFactory = ::createChild
         )
@@ -92,7 +92,7 @@ class DefaultTransactionComponent(
     }
 
     override fun navigateToInput() {
-        navigation.replaceAll(Config.Input)
+        navigation.replaceAll(Config.Input(token = System.currentTimeMillis()))
     }
 
     override fun navigateToTransactionType() {
@@ -111,7 +111,7 @@ class DefaultTransactionComponent(
     sealed class Config {
 
         @Serializable
-        data object Input : Config()
+        data class Input(val token: Long = 0L) : Config()
 
         @Serializable
         data object TransactionType : Config()

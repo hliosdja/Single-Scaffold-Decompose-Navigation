@@ -8,6 +8,11 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import com.arkivanov.decompose.extensions.compose.stack.Children
@@ -26,6 +31,8 @@ fun TransactionContent(component: TransactionComponent) {
     ) {
         when (val instance = it.instance) {
             is TransactionComponent.Child.Input -> {
+                var counter by rememberSaveable { mutableIntStateOf(0) }
+
                 Box(
                     modifier = Modifier.fillMaxSize(),
                     contentAlignment = Alignment.Center
@@ -36,6 +43,12 @@ fun TransactionContent(component: TransactionComponent) {
                         horizontalAlignment = Alignment.CenterHorizontally
                     ) {
                         Text(text = "Input")
+                        Text(text = "Counter: $counter")
+                        Button(
+                            onClick = { counter++ }
+                        ) {
+                            Text(text = "Increment counter")
+                        }
                         Button(
                             onClick = { component.navigateToTransactionType() }
                         ) {
