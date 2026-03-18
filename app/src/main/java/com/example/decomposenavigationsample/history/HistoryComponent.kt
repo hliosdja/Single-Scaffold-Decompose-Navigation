@@ -16,7 +16,6 @@ interface HistoryComponent {
     val navAction: Value<NavAction>
 
     fun navigateToDetails()
-    fun navigateBack()
     fun onBackClicked()
 
     sealed interface Child {
@@ -67,10 +66,6 @@ class DefaultHistoryComponent(
 
     override fun navigateToDetails() {
         navigation.pushNew(Config.Details)
-    }
-
-    override fun navigateBack() {
-        navigation.pop()
     }
 
     @Serializable

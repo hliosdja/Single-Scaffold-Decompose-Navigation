@@ -13,7 +13,6 @@ import kotlinx.serialization.Serializable
 
 interface RootComponent {
     val drawerNav: DrawerNavComponent
-    val navAction: Value<NavAction>
 
     fun onBackClick()
 }
@@ -25,8 +24,6 @@ class DefaultRootComponent(
     override val drawerNav: DrawerNavComponent = DefaultDrawerNavComponent(
         componentContext = childContext("drawer_nav")
     )
-
-    override val navAction: Value<NavAction> = drawerNav.navAction
 
     override fun onBackClick() {
         drawerNav.onBackClick()
