@@ -1,7 +1,6 @@
 package com.example.decomposenavigationsample.transaction.processing
 
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.router.pages.select
 import com.arkivanov.decompose.router.stack.ChildStack
 import com.arkivanov.decompose.router.stack.StackNavigation
 import com.arkivanov.decompose.router.stack.childStack

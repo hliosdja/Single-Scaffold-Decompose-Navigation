@@ -13,7 +13,6 @@ import com.example.decomposenavigationsample.history.HistoryComponent
 import com.example.decomposenavigationsample.transaction.DefaultTransactionComponent
 import com.example.decomposenavigationsample.transaction.TransactionComponent
 import kotlinx.serialization.Serializable
-import kotlinx.serialization.builtins.serializer
 
 interface DrawerNavComponent {
     val stack: Value<ChildStack<*, Child>>

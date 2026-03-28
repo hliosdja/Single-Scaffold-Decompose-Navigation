@@ -2,14 +2,8 @@ package com.example.decomposenavigationsample.root
 
 import com.arkivanov.decompose.ComponentContext
 import com.arkivanov.decompose.childContext
-import com.arkivanov.decompose.router.stack.ChildStack
-import com.arkivanov.decompose.router.stack.StackNavigation
-import com.arkivanov.decompose.value.MutableValue
-import com.arkivanov.decompose.value.Value
-import com.example.decomposenavigationsample.NavAction
 import com.example.decomposenavigationsample.drawer.DefaultDrawerNavComponent
 import com.example.decomposenavigationsample.drawer.DrawerNavComponent
-import kotlinx.serialization.Serializable
 
 interface RootComponent {
     val drawerNav: DrawerNavComponent
